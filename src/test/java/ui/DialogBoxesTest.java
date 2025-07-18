@@ -71,10 +71,8 @@ public class DialogBoxesTest extends BaseTest{
     }
 
     @Test
-    void proverkaLaunchModal() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOf(dialogBoxesPage.getLaunchModal()));
-
+    void proverkaLaunchModal() throws InterruptedException {
+        Thread.sleep(2000);
         dialogBoxesPage.getLaunchModalButton().click();
         assertEquals("This is the modal body", dialogBoxesPage.getLaunchModal().getText() );
 
