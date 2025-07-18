@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -38,7 +39,10 @@ public class DialogBoxesTest extends BaseTest{
     void proverkaLaunchAlert() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        wait.until(ExpectedConditions.elementToBeClickable(dialogBoxesPage.getLaunchAlertButton())).click();
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block: 'center'});",
+                dialogBoxesPage.getLaunchAlertButton()
+        );
 
         dialogBoxesPage.getLaunchAlertButton().click();
         Alert launchAlert = wait.until(ExpectedConditions.alertIsPresent());
