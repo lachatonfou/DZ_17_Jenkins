@@ -72,8 +72,8 @@ public class DialogBoxesTest extends BaseTest{
 
     @Test
     void proverkaLaunchModal() throws InterruptedException {
-        Thread.sleep(2000);
         dialogBoxesPage.getLaunchModalButton().click();
+        Thread.sleep(2000);
         assertEquals("This is the modal body", dialogBoxesPage.getLaunchModal().getText() );
 
         dialogBoxesPage.getLaunchModalSaveButton().click();
