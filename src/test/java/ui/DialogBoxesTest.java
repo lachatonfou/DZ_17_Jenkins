@@ -37,6 +37,9 @@ public class DialogBoxesTest extends BaseTest{
     @Test
     void proverkaLaunchAlert() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.elementToBeClickable(dialogBoxesPage.getLaunchAlertButton())).click();
+
         dialogBoxesPage.getLaunchAlertButton().click();
         Alert launchAlert = wait.until(ExpectedConditions.alertIsPresent());
         assertEquals("Hello world!", launchAlert.getText());
