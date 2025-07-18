@@ -46,6 +46,8 @@ public class BaseTest {
             Allure.addAttachment("RemoteUrl", remoteUrl);
             ChromeOptions options = new ChromeOptions();
             //options.addArguments("--headless");  // Add headless mode
+            options.addArguments("--headless=new"); // Новый headless-режим Chrome
+            options.addArguments("--window-size=1920,1080"); // Фиксированный размер окна
             options.addArguments("--disable-gpu"); // Switch off GPU, because we don't need it in headless mode
             options.addArguments("--no-sandbox"); // Switch off sandbox to prevent access rights issues
             options.addArguments("--disable-dev-shm-usage"); // Use /tmp instead of /dev/shm
