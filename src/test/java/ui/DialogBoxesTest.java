@@ -39,11 +39,6 @@ public class DialogBoxesTest extends BaseTest{
     void proverkaLaunchAlert() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].scrollIntoView({block: 'center'});",
-                dialogBoxesPage.getLaunchAlertButton()
-        );
-
         dialogBoxesPage.getLaunchAlertButton().click();
         Alert launchAlert = wait.until(ExpectedConditions.alertIsPresent());
         assertEquals("Hello world!", launchAlert.getText());
@@ -77,6 +72,9 @@ public class DialogBoxesTest extends BaseTest{
 
     @Test
     void proverkaLaunchModal() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(dialogBoxesPage.getLaunchModal()));
+
         dialogBoxesPage.getLaunchModalButton().click();
         assertEquals("This is the modal body", dialogBoxesPage.getLaunchModal().getText() );
 
