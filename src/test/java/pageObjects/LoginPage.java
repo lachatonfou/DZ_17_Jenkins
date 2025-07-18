@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
+    private static final String LOGIN_URL = "login-form.html";
     TestPropertiesConfig configProperties = ConfigFactory.create(TestPropertiesConfig.class, System.getProperties());
 
     @FindBy(id = "username")
@@ -19,13 +20,13 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
-        driver.get(configProperties.getBaseUrl() + "login-form.html");
     }
 
     @Step("Login with valid user and password")
-    public void login() {
+    public void login() throws InterruptedException {
         usernameInput.sendKeys(configProperties.getLogin());
         passwordInput.sendKeys(configProperties.getPasswordLogin());
+        Thread.sleep(1000);
         loginButton.click();
     }
 }

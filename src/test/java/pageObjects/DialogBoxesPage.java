@@ -1,6 +1,8 @@
 package pageObjects;
 
+import configs.TestPropertiesConfig;
 import io.qameta.allure.Step;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 public class DialogBoxesPage extends BasePage{
 
     private static final String DIALOG_BOXES_URL = "dialog-boxes.html";
+    TestPropertiesConfig configProperties = ConfigFactory.create(TestPropertiesConfig.class, System.getProperties());
 
     //locators
     @FindBy(id = "my-alert")

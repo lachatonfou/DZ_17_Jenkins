@@ -2,7 +2,6 @@ package ui;
 
 import configs.TestPropertiesConfig;
 import io.qameta.allure.Allure;
-import io.qameta.allure.Feature;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,8 +15,6 @@ import utils.AfterTestExtension;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
-
-import static patterns.WebDriverFactory.createWebDriver;
 
 @ExtendWith(AfterTestExtension.class)
 public class BaseTest {

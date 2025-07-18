@@ -14,6 +14,8 @@ public class HomePage extends BasePage{
 
     public static final String BASE_URL = "https://bonigarcia.dev/selenium-webdriver-java/";
 
+    @FindBy(xpath = "//a[@href = 'login-form.html']")
+    private WebElement loginButton;
     @FindBy(xpath = "//a[@href = 'web-form.html']")
     private WebElement webFormButton;
     @FindBy(xpath = "//a[@href = 'navigation1.html']")
@@ -32,6 +34,12 @@ public class HomePage extends BasePage{
     @Step("Open homepage")
     private void openHome() {
         driver.get(BASE_URL);
+    }
+
+    @Step("Open Login page")
+    public LoginPage openLoginPage() {
+        loginButton.click();
+        return new LoginPage(driver);
     }
 
     @Step("Open Web form page")

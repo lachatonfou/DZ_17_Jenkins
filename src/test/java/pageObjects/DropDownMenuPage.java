@@ -1,6 +1,8 @@
 package pageObjects;
 
+import configs.TestPropertiesConfig;
 import io.qameta.allure.Step;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 public class DropDownMenuPage extends BasePage{
 
     private static final String DROP_DOWN_URL = "dropdown-menu.html";
+    TestPropertiesConfig configProperties = ConfigFactory.create(TestPropertiesConfig.class, System.getProperties());
 
     //locators
     @FindBy(id = "my-dropdown-1")

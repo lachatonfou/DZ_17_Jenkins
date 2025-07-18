@@ -1,12 +1,16 @@
 package pageObjects;
 
+import configs.TestPropertiesConfig;
 import io.qameta.allure.Step;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class NavigationPage extends BasePage{
+
+    TestPropertiesConfig configProperties = ConfigFactory.create(TestPropertiesConfig.class, System.getProperties());
 
     //locators
     @FindBy(xpath = "//li[normalize-space(.)='2']")
